@@ -69,7 +69,7 @@ function HomeNews({ className }: StyledProp) {
         <div className='__apps'>
           <div className='apps__title'>
             <Typography.Heading as='h3' weight='bold' color='neutralColor.low.medium' marginBottom>
-              Veja o que acabou de chegar
+              Acabaram de chegar
             </Typography.Heading>
           </div>
 
