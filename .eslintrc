@@ -1,0 +1,6 @@
+{
+  "extends": ["@eduzz/eslint-config-houston"],
+  "rules": {
+    "react/no-unknown-property": ["off"]
+  }
+}

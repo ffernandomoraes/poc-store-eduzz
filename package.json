@@ -9,16 +9,37 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@eduzz/houston-icons": "^0.62.0",
+    "@eduzz/houston-styles": "^0.63.1-beta.0",
+    "@eduzz/houston-ui": "^0.63.1",
+    "@emotion/cache": "^11.10.3",
+    "@emotion/react": "^11.10.4",
+    "@emotion/server": "^11.10.0",
     "next": "12.2.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
+    "react-slick": "^0.29.0"
   },
   "devDependencies": {
+    "@eduzz/eslint-config-houston": "^0.63.1-beta.0",
     "@types/node": "18.7.14",
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
+    "@types/react-slick": "^0.23.10",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-eslint-plugin": "^5.0.6",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-sonarjs": "^0.15.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2.7.1",
     "typescript": "4.8.2"
   }
 }
