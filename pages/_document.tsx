@@ -37,7 +37,8 @@ export default class MyDocument extends Document {
             styles={css`
               body,
               button,
-              input {
+              input,
+              li {
                 font-family: 'Albert Sans' !important;
               }
             `}

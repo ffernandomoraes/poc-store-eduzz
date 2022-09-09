@@ -1,5 +1,6 @@
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 
 import { HoustonThemeProps } from '@eduzz/houston-styles';
 import createTheme from '@eduzz/houston-styles/createTheme';
@@ -20,6 +21,9 @@ function MyApp({
     <>
       <CacheProvider value={emotionCache}>
         <ThemeProvider theme={theme}>
+          <Head>
+            <title>Eduzz Store</title>
+          </Head>
           <Component {...pageProps} />
         </ThemeProvider>
       </CacheProvider>
