@@ -1,9 +1,9 @@
 import Footer from '../shared/Footer';
-import Categories from './components/Categories';
-import Developer from './components/Developer';
-import Hero from './components/Hero';
-import News from './components/News';
-import Topbar from './components/Topbar';
+import Topbar from '../shared/Topbar';
+import Categories from './Categories';
+import Developer from './Developer';
+import Hero from './Hero';
+import News from './News';
 
 function HomePage() {
   return (

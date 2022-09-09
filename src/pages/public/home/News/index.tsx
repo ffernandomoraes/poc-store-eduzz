@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import styled, { css, StyledProp } from '@eduzz/houston-styles';
 import Button from '@eduzz/houston-ui/Button';
@@ -75,31 +76,33 @@ function HomeNews({ className }: StyledProp) {
 
           <div className='apps__list'>
             {apps.map((app, index) => (
-              <div key={`app-${index}`} className='apps__item'>
-                <div className='item__tag'>
-                  <span>
-                    <Typography size='xxxs' weight='bold' color='neutralColor.low.medium'>
-                      {app.tag}
-                    </Typography>
-                  </span>
-                </div>
-
-                <div className='item__content'>
-                  <div className='item__image'>
-                    <Image src={app.image} width={100} height={100} />
+              <Link key={`app-${index}`} href='/review'>
+                <div className='apps__item'>
+                  <div className='item__tag'>
+                    <span>
+                      <Typography size='xxxs' weight='bold' color='neutralColor.low.medium'>
+                        {app.tag}
+                      </Typography>
+                    </span>
                   </div>
 
-                  <div className='item__details'>
-                    <Typography size='xs' weight='semibold' marginBottom>
-                      {app.name}
-                    </Typography>
+                  <div className='item__content'>
+                    <div className='item__image'>
+                      <Image src={app.image} width={100} height={100} />
+                    </div>
 
-                    <Typography size='xxs' weight='regular' color='neutralColor.low.medium' lineHeight='lg'>
-                      {app.description}
-                    </Typography>
+                    <div className='item__details'>
+                      <Typography size='xs' weight='semibold' marginBottom>
+                        {app.name}
+                      </Typography>
+
+                      <Typography size='xxs' weight='regular' color='neutralColor.low.medium' lineHeight='lg'>
+                        {app.description}
+                      </Typography>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -137,6 +140,7 @@ export default styled(HomeNews)(
         gap: 1.5rem;
 
         .apps__item {
+          cursor: pointer;
           background-color: ${theme.neutralColor.high.pure};
           padding: ${theme.spacing.xs};
           border-radius: ${theme.border.radius.sm};
@@ -179,7 +183,7 @@ export default styled(HomeNews)(
         align-items: center;
         width: 100%;
         justify-content: center;
-        margin-top: ${theme.spacing.md};
+        margin-top: ${theme.spacing.xl};
       }
     }
   `

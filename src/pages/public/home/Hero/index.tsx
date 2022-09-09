@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { AiOutlineStar, AiFillStar, AiOutlineSearch } from 'react-icons/ai';
 import Slider, { Settings } from 'react-slick';
 
@@ -120,44 +121,46 @@ function HomeHero({ className }: StyledProp) {
             <Slider {...settings}>
               {apps.map((app, index) => (
                 <div key={`app-${index}`}>
-                  <div className='apps__item'>
-                    <div className='item__image'>
-                      <Image src={app.image} width={120} height={120} />
-                    </div>
-
-                    <div className='item__details'>
-                      <Typography size='xs' weight='semibold' marginBottom>
-                        {app.name}
-                      </Typography>
-
-                      <Typography size='xxs' weight='regular' color='neutralColor.low.medium' lineHeight='lg'>
-                        {app.description}
-                      </Typography>
-                    </div>
-
-                    <div className='item__rate'>
-                      <div className='rate__stars'>
-                        <AiFillStar />
-                        <AiFillStar />
-                        <AiFillStar />
-                        <AiFillStar />
-                        <AiOutlineStar />
+                  <Link href='/review'>
+                    <div className='apps__item'>
+                      <div className='item__image'>
+                        <Image src={app.image} width={120} height={120} />
                       </div>
-                      <div className='rate__total'>
-                        <Typography size='xxxs' weight='regular' color='neutralColor.low.medium'>
-                          ({app.rate})
+
+                      <div className='item__details'>
+                        <Typography size='xs' weight='semibold' marginBottom>
+                          {app.name}
+                        </Typography>
+
+                        <Typography size='xxs' weight='regular' color='neutralColor.low.medium' lineHeight='lg'>
+                          {app.description}
                         </Typography>
                       </div>
-                    </div>
 
-                    <div className='item__tag'>
-                      <span>
-                        <Typography size='xxxs' weight='bold' color='neutralColor.low.medium'>
-                          {app.tag}
-                        </Typography>
-                      </span>
+                      <div className='item__rate'>
+                        <div className='rate__stars'>
+                          <AiFillStar />
+                          <AiFillStar />
+                          <AiFillStar />
+                          <AiFillStar />
+                          <AiOutlineStar />
+                        </div>
+                        <div className='rate__total'>
+                          <Typography size='xxxs' weight='regular' color='neutralColor.low.medium'>
+                            ({app.rate})
+                          </Typography>
+                        </div>
+                      </div>
+
+                      <div className='item__tag'>
+                        <span>
+                          <Typography size='xxxs' weight='bold' color='neutralColor.low.medium'>
+                            {app.tag}
+                          </Typography>
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               ))}
             </Slider>
@@ -222,6 +225,7 @@ export default styled(HomeHero)(
           border-radius: ${theme.border.radius.sm};
           box-shadow: ${theme.shadow.level[2]};
           transition: all 0.3s;
+          cursor: pointer;
 
           &:hover {
             transform: scale(1.02);

@@ -87,7 +87,7 @@ export default styled(HomeCategories)(
 
         &:hover {
           background-color: white;
-          box-shadow: ${theme.shadow.level[2]};
+          box-shadow: ${theme.shadow.level[1]};
         }
 
         .item__icon {
