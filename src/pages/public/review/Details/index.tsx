@@ -133,7 +133,7 @@ function Details({ className }: StyledProp) {
           </div>
 
           <div className='rating__cta'>
-            <Button variant='outlined'>Ver mais avaliações</Button>
+            <Button variant='outlined'>Ver mais avaliações (34)</Button>
           </div>
         </div>
 

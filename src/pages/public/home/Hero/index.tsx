@@ -1,6 +1,8 @@
+import { useCallback } from 'react';
+
 import Image from 'next/image';
-import Link from 'next/link';
 import { AiOutlineStar, AiFillStar, AiOutlineSearch } from 'react-icons/ai';
+import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 import Slider, { Settings } from 'react-slick';
 
 import styled, { css, StyledProp } from '@eduzz/houston-styles';
@@ -80,11 +82,16 @@ function HomeHero({ className }: StyledProp) {
     infinite: false,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1,
-    arrows: false,
+    slidesToScroll: 2,
+    arrows: true,
     rows: 1,
-    swipeToSlide: true
+    swipeToSlide: false,
+    swipe: false,
+    prevArrow: <IoIosArrowBack />,
+    nextArrow: <IoIosArrowForward />
   };
+
+  const handleClickItem = useCallback(() => (window.location.href = '/review'), []);
 
   return (
     <div className={className}>
@@ -121,46 +128,44 @@ function HomeHero({ className }: StyledProp) {
             <Slider {...settings}>
               {apps.map((app, index) => (
                 <div key={`app-${index}`}>
-                  <Link href='/review'>
-                    <div className='apps__item'>
-                      <div className='item__image'>
-                        <Image src={app.image} width={120} height={120} />
-                      </div>
+                  <div className='apps__item' onClick={handleClickItem}>
+                    <div className='item__image'>
+                      <Image src={app.image} width={120} height={120} />
+                    </div>
 
-                      <div className='item__details'>
-                        <Typography size='xs' weight='semibold' marginBottom>
-                          {app.name}
+                    <div className='item__details'>
+                      <Typography size='xs' weight='semibold' marginBottom>
+                        {app.name}
+                      </Typography>
+
+                      <Typography size='xxs' weight='regular' color='neutralColor.low.medium' lineHeight='lg'>
+                        {app.description}
+                      </Typography>
+                    </div>
+
+                    <div className='item__rate'>
+                      <div className='rate__stars'>
+                        <AiFillStar />
+                        <AiFillStar />
+                        <AiFillStar />
+                        <AiFillStar />
+                        <AiOutlineStar />
+                      </div>
+                      <div className='rate__total'>
+                        <Typography size='xxxs' weight='regular' color='neutralColor.low.medium'>
+                          ({app.rate})
                         </Typography>
-
-                        <Typography size='xxs' weight='regular' color='neutralColor.low.medium' lineHeight='lg'>
-                          {app.description}
-                        </Typography>
-                      </div>
-
-                      <div className='item__rate'>
-                        <div className='rate__stars'>
-                          <AiFillStar />
-                          <AiFillStar />
-                          <AiFillStar />
-                          <AiFillStar />
-                          <AiOutlineStar />
-                        </div>
-                        <div className='rate__total'>
-                          <Typography size='xxxs' weight='regular' color='neutralColor.low.medium'>
-                            ({app.rate})
-                          </Typography>
-                        </div>
-                      </div>
-
-                      <div className='item__tag'>
-                        <span>
-                          <Typography size='xxxs' weight='bold' color='neutralColor.low.medium'>
-                            {app.tag}
-                          </Typography>
-                        </span>
                       </div>
                     </div>
-                  </Link>
+
+                    <div className='item__tag'>
+                      <span>
+                        <Typography size='xxxs' weight='bold' color='neutralColor.low.medium'>
+                          {app.tag}
+                        </Typography>
+                      </span>
+                    </div>
+                  </div>
                 </div>
               ))}
             </Slider>
@@ -204,6 +209,28 @@ export default styled(HomeHero)(
     .__apps {
       .slick-list {
         overflow: inherit;
+      }
+
+      .slick-next,
+      .slick-prev {
+        width: 44px;
+        height: 44px;
+        color: ${theme.neutralColor.low.light};
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 3;
+        border-radius: ${theme.border.radius.circular};
+        padding: 0.8rem;
+        color: #fff;
+        transition: 0.3s;
+        opacity: 0.35;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        &.slick-disabled {
+          opacity: 0;
+        }
       }
 
       .apps__title {

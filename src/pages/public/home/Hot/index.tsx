@@ -6,7 +6,7 @@ import Button from '@eduzz/houston-ui/Button';
 import Grid from '@eduzz/houston-ui/Grid';
 import Typography from '@eduzz/houston-ui/Typography';
 
-function HomeNews({ className }: StyledProp) {
+function HomeHot({ className }: StyledProp) {
   const apps = [
     {
       name: 'Nutror',
@@ -43,45 +43,27 @@ function HomeNews({ className }: StyledProp) {
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut condimentum arcu, non',
       image: '/apps/foguete.png',
       tag: 'Conversão'
-    },
-    {
-      name: 'Nutror',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut condimentum arcu, non',
-      image: '/apps/nutror.png',
-      tag: 'Área de membros'
-    },
-    {
-      name: 'Safe Vídeo',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut condimentum arcu, non',
-      image: '/apps/safevideo.png',
-      tag: 'Conversão'
-    },
-    {
-      name: 'Checkout Sun',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut condimentum arcu, non',
-      image: '/apps/checkout.png',
-      tag: 'Pagamentos'
     }
   ];
 
   return (
     <div className={className}>
       <Grid.Container className='__container'>
-        <div className='__apps'>
+        <div className='__hot'>
           <div className='apps__title'>
             <Typography.Heading as='h3' weight='bold' color='neutralColor.low.medium' marginBottom>
-              Acabaram de chegar
+              Em alta
             </Typography.Heading>
           </div>
 
           <div className='apps__list'>
-            {apps.map((app, index) => (
+            {apps.sort().map((app, index) => (
               <Link key={`app-${index}`} href='/review'>
                 <div className='apps__item'>
-                  <div className='item__tag'>
+                  <div className='item__number'>
                     <span>
                       <Typography size='xxxs' weight='bold' color='neutralColor.low.medium'>
-                        {app.tag}
+                        #{index + 1}
                       </Typography>
                     </span>
                   </div>
@@ -115,7 +97,7 @@ function HomeNews({ className }: StyledProp) {
   );
 }
 
-export default styled(HomeNews)(
+export default styled(HomeHot)(
   ({ theme }) => css`
     overflow: hidden;
 
@@ -123,7 +105,7 @@ export default styled(HomeNews)(
       padding: ${theme.spacing.xl} 0;
     }
 
-    .__apps {
+    .__hot {
       .apps__title {
         width: 100%;
         text-transform: uppercase;
@@ -140,8 +122,8 @@ export default styled(HomeNews)(
         gap: 1.5rem;
 
         .apps__item {
+          position: relative;
           cursor: pointer;
-          background-color: ${theme.neutralColor.high.pure};
           padding: ${theme.spacing.xs};
           border-radius: ${theme.border.radius.sm};
           box-shadow: ${theme.shadow.level[2]};
@@ -155,9 +137,10 @@ export default styled(HomeNews)(
             transform: scale(1.02);
           }
 
-          .item__tag {
-            margin-bottom: ${theme.spacing.xxs};
-            width: 100%;
+          .item__number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
 
             span {
               text-transform: uppercase;

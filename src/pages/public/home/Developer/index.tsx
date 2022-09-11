@@ -92,7 +92,7 @@ function HomeDeveloper({ className }: StyledProp) {
 export default styled(HomeDeveloper)(
   ({ theme }) => css`
     .__container {
-      padding: ${theme.spacing.xxl} 0 ${theme.spacing.giant} 0;
+      padding: ${theme.spacing.xxl} 0 ${theme.spacing.xxxl} 0;
       width: 1000px;
       max-width: 100%;
     }

@@ -3,6 +3,7 @@ import Topbar from '../shared/Topbar';
 import Categories from './Categories';
 import Developer from './Developer';
 import Hero from './Hero';
+import Hot from './Hot';
 import News from './News';
 
 function HomePage() {
@@ -11,6 +12,7 @@ function HomePage() {
       <Topbar />
       <Hero />
       <Categories />
+      <Hot />
       <News />
       <Developer />
       <Footer />

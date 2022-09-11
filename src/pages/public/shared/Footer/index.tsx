@@ -114,7 +114,7 @@ export default styled(Footer)`
   ${({ theme }) => css`
     background-color: ${theme.neutralColor.high.pure};
     border-top: 1px solid ${theme.neutralColor.high.medium};
-    padding: ${theme.spacing.md} 0;
+    padding: ${theme.spacing.lg} 0;
 
     .footer__logo {
       .logo__image {
